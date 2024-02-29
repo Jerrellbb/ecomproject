@@ -9,6 +9,12 @@ class Trainer(models.Model):
   in_stock = models.BooleanField(default=True)
   price = models.FloatField(default=0.00)
   brand = models.ForeignKey(to='categorys.Brand', related_name='Brand', on_delete=models.CASCADE, null=True,)
+  owner = models.ForeignKey(
+    to='users.User',
+    on_delete=models.CASCADE,
+    related_name='owned_trainers',
+    null=True
+  )
 
 class TrainerSizes(models.Model):
   trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
@@ -16,3 +22,7 @@ class TrainerSizes(models.Model):
 
   class Meta:
         unique_together = ('trainer', 'size')
+
+class TrainerImage(models.Model):
+    trainer = models.ManyToManyField(Trainer, related_name='trainer_images')
+    image = models.URLField()
