@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'users',
     'categorys',
     'trainers',
+    'basket'
     ]
 
 MIDDLEWARE = [

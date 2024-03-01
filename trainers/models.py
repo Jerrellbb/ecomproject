@@ -15,14 +15,9 @@ class Trainer(models.Model):
     related_name='owned_trainers',
     null=True
   )
-
-class TrainerSizes(models.Model):
-  trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
   size = models.PositiveIntegerField()
-
-  class Meta:
-        unique_together = ('trainer', 'size')
+  images = models.ManyToManyField(to='trainers.TrainerImage', related_name='trainer_images', blank=True)
 
 class TrainerImage(models.Model):
-    trainer = models.ManyToManyField(Trainer, related_name='trainer_images')
+    
     image = models.URLField()
