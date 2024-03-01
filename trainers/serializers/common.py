@@ -20,3 +20,10 @@ class TrainerSerializer(serializers.ModelSerializer):
         for image_data in images_data:
             TrainerImage.objects.create(trainer=trainer, **image_data)
         return trainer
+  
+
+
+class BasketListTrainerSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Trainer
+    fields = ['name', 'price']
