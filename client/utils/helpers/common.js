@@ -1,4 +1,4 @@
-const tokenName = 'SECURE-STAFFING'
+const tokenName = 'ECOME-PROJ'
 
 // This function takes a request object and returns form data as a JS object
 export async function formToObj(request){
