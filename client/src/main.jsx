@@ -8,13 +8,15 @@ import Login from "./components/Login.jsx"
 import Register from "./components/Register.jsx"
 import Home from "./components/Home.jsx"
 import TrainerList from "./components/TrainerList.jsx"
+import TrainerDetail from "./components/TrainerDetail.jsx"
+import Cart from "./components/Cart.jsx"
 
 //actions
 import { loginUser, registerUser } from "../utils/actions/auth.js"
 
 
 //loaders
-import { getAllTrainers } from "../utils/loaders.js"
+import { getAllTrainers, singleTrainer, getCart } from "../utils/loaders.js"
 
 
 const router = createBrowserRouter([
@@ -41,6 +43,16 @@ const router = createBrowserRouter([
         path: "/trainers/",
         element: <TrainerList />,
         loader: async ({ params }) => getAllTrainers(params),
+      },
+      {
+        path: "/trainer/:id",
+        element: <TrainerDetail />,
+        loader: async ({ params }) => singleTrainer(params.id),
+      },
+      {
+        path: "/basket/:id",
+        element: <Cart />,
+        loader: async ({ params }) => getCart(params.id),
       }
     
       
