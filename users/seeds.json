@@ -1,0 +1,59 @@
+[
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$e3z3KkpQy1foZ1qbOXyBYZ$FrW2SxWtGgt3lIXCslS3lT6ayrMuc3WFWPwGonNIAPk=",
+    "last_login": "2024-02-29T13:27:17.561Z",
+    "is_superuser": true,
+    "username": "jerrellbb",
+    "first_name": "",
+    "last_name": "",
+    "email": "jerrellbb@yahoo.co.uk",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-02-29T12:26:18.904Z",
+    "bio": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 2,
+  "fields": {
+    "password": "pass",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jerrell",
+    "first_name": "",
+    "last_name": "",
+    "email": "jerrell@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-02-29T14:55:23Z",
+    "bio": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$NQaRCjkKlrAcQnQ7DjIHVL$SeMdombxPvQLT+p1PmQ+sDIOqN7mJYZ+QPuyX1Lxz8g=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jim",
+    "first_name": "",
+    "last_name": "",
+    "email": "jim@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-02-29T16:39:45.047Z",
+    "bio": null,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

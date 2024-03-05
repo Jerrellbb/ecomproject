@@ -1,10 +1,12 @@
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
-from .models import Trainer,  TrainerImage
-from .serializers.common import TrainerSerializer,  TrainerImageSerializer
+from .models import Trainer  
+from .serializers.common import TrainerSerializer
 from .serializers.populated import TrainerListSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from lib.permissions import IsOwnerOrReadOnly
 from lib.views import OwnerListCreateView
+from rest_framework import status
+from rest_framework.response import Response
 
 # Create your views here.
 class TrainerListCreateAPIView(OwnerListCreateView):
@@ -28,3 +30,6 @@ class TrainerDetailView(RetrieveUpdateDestroyAPIView):
       return TrainerSerializer
     return TrainerListSerializer
 
+
+
+  

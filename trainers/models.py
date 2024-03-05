@@ -16,8 +16,6 @@ class Trainer(models.Model):
     null=True
   )
   size = models.PositiveIntegerField()
-  images = models.ManyToManyField(to='trainers.TrainerImage', related_name='trainer_images', blank=True)
+  image = models.URLField(null=True, blank=True)
 
-class TrainerImage(models.Model):
-    
-    image = models.URLField()
+

@@ -1,0 +1,42 @@
+[
+{
+  "model": "categorys.brand",
+  "pk": 1,
+  "fields": {
+    "name": "nike",
+    "slug": null
+  }
+},
+{
+  "model": "categorys.brand",
+  "pk": 2,
+  "fields": {
+    "name": "adidas",
+    "slug": null
+  }
+},
+{
+  "model": "categorys.brand",
+  "pk": 3,
+  "fields": {
+    "name": "puma",
+    "slug": null
+  }
+},
+{
+  "model": "categorys.brand",
+  "pk": 4,
+  "fields": {
+    "name": "fila",
+    "slug": null
+  }
+},
+{
+  "model": "categorys.brand",
+  "pk": 5,
+  "fields": {
+    "name": "reebok",
+    "slug": null
+  }
+}
+]

@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Basket(models.Model):
   
-  trainer = models.ManyToManyField(to='trainers.Trainer')
+  trainer = models.ManyToManyField(to='trainers.Trainer',  blank=True)
   is_active = models.BooleanField(default=True)
   owner = models.ForeignKey(
     to='users.User',
