@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         path: "/trainer/:id/",
         element: <TrainerDetail />,
         loader: async ({ params }) => singleTrainer(params.id),
-        action: async ({ request }) => updateCart(request),
+        action: async ({ request, params }) => updateCart(request, params.id ),
       },
       {
         path: "/basket/:id/",
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         path: "/trainer/:id/edit/",
         element: <EditTrainer />,
         loader: async ({ params }) => singleTrainer(params.id),
-        action: async ({ request, params }) => updateTrainer(request, params.id),
+        action: async ({ request }) => updateTrainer(request),
       }
     
     
