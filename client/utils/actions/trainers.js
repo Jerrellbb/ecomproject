@@ -12,3 +12,17 @@ export async function createTrainer(request){
     }
   })
 }
+
+export async function updateTrainer(request, id){
+
+  const data = await formToObj(request)
+  
+  return await axios.patch(`/api/trainer/${id}/`, data, {
+    validateStatus : () => true,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      
+    }
+  })
+}
+

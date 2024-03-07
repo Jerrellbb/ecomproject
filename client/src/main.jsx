@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
+//styles
+import './styles/main.scss'
+
 //components
 import Login from "./components/Login.jsx"
 import Register from "./components/Register.jsx"
@@ -11,15 +14,16 @@ import TrainerList from "./components/TrainerList.jsx"
 import TrainerDetail from "./components/TrainerDetail.jsx"
 import Cart from "./components/Cart.jsx"
 import CreateTrainer from "./components/CreateTrainer.jsx"
+import EditTrainer from "./components/EditTrainer.jsx"
 
 //actions
 import { loginUser, registerUser } from "../utils/actions/auth.js"
-
+import { createTrainer, updateTrainer } from "../utils/actions/trainers.js"
 
 //loaders
 import { getAllTrainers, singleTrainer, getCart } from "../utils/loaders.js"
 
-import { createTrainer } from "../utils/actions/trainers.js"
+
 import { updateCart } from "../utils/actions/cart.js"
 
 
@@ -64,6 +68,12 @@ const router = createBrowserRouter([
         element: <CreateTrainer />,
         action: async ({ request }) => createTrainer(request),
       },
+      {
+        path: "/trainer/:id/edit/",
+        element: <EditTrainer />,
+        loader: async ({ params }) => singleTrainer(params.id),
+        action: async ({ request, params }) => updateTrainer(request, params.id),
+      }
     
     
       

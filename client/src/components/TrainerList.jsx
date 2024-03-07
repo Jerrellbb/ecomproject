@@ -17,7 +17,7 @@ export default function TrainerList() {
       {Trainers.map(trainer => (
         <li key={trainer.id}>
           <Link to={`/trainer/${trainer.id}`}>{trainer.name}</Link>
-          
+          <img src={trainer.image} alt={trainer.name} style={{ height: 200, width:200 }} />
           <p>£{trainer.price}</p>
         </li>
       ))}
