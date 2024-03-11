@@ -23,7 +23,7 @@ export async function registerUser(request){
 // }
 
 
-export async function signoutUser(){
+export async function signOutUser(){
   deleteCart()
   removeToken()
 }

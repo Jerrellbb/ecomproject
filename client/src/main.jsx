@@ -4,7 +4,9 @@ import App from './App.jsx'
 import './index.css'
 
 //styles
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/main.scss'
+
 
 //components
 import Login from "./components/Login.jsx"
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
         path: "/trainer/:id/edit/",
         element: <EditTrainer />,
         loader: async ({ params }) => singleTrainer(params.id),
-        action: async ({ request }) => updateTrainer(request),
+        action: async ({ request, params }) => updateTrainer(request, params.id),
       }
     
     

@@ -57,4 +57,12 @@ console.log(activeUserResult)
   return null
 }
 
+export function cartId(){
+  const cartData = JSON.parse(localStorage.getItem('cart'))
+  return cartData.id
+}
 
+export function cart() {
+  const cartData = JSON.parse(localStorage.getItem('cart'))
+  return cartData
+}

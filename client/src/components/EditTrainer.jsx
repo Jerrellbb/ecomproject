@@ -16,7 +16,7 @@ export default function EditTrainer() {
   useEffect(() => {
     console.log(res)
     if (res?.status === 200) {
-      navigate(`/auth/trainer/${res.id}/`)
+      navigate(`/trainer/${res.data.id}/`)
     }
   }, [res, navigate])
 
@@ -59,18 +59,18 @@ export default function EditTrainer() {
 
           <input type="text" name="description" placeholder='About the trainer' onChange={handleChange} value={formData.description} />
 
-          <input type="number" name="price" placeholder='e.g. 10.99' onChange={handleChange} value={formData.price} />
+          <input type="number" name="price" placeholder='e.g. 10.99' step="0.01" onChange={handleChange} value={formData.price} />
 
           <input type="number" name="size" placeholder='e.g. 7' onChange={handleChange} value={formData.size} />
 
           <label htmlFor="brand">Brand</label >
           <select name="brand" id="brand" onChange={handleChange} value={formData.brand}>
             <option value="default" defaultValue>choose brand</option>
-            <option value="1">Reebok</option>
-            <option value="2">Fila</option>
+            <option value="1">Nike</option>
+            <option value="2">Adidas</option>
             <option value="3">Puma</option>
-            <option value="4">Adidas</option>
-            <option value="5">Nike</option>
+            <option value="4">Fila</option>
+            <option value="5">Reebok</option>
           </select >
 
           <label hidden htmlFor="images">Images</label>
@@ -80,7 +80,7 @@ export default function EditTrainer() {
           </button>
 
 
-          <button type="submit">Submit</button>
+          <button type="submit">Edit</button>
           {res && <p className='danger'>{res.data.message}</p>}
         </Form>
       </div>

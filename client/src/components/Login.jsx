@@ -29,8 +29,8 @@ export default function Login() {
 
 
     <>
-      <div className="form-container">
         <h1 className="text-center bold display-3 mb-4">Login</h1>
+      <div className="form-container">
         <Form className='form' method="POST">
           <input type="text" name="username" placeholder='Username' autoComplete='username' />
           <input type="password" name="password" placeholder="Password" autoComplete='current-password' />

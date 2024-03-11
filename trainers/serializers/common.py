@@ -18,4 +18,4 @@ class TrainerSerializer(serializers.ModelSerializer):
 class BasketListTrainerSerializer(serializers.ModelSerializer):
   class Meta:
     model = Trainer
-    fields = ['name', 'price']
+    fields = ['name', 'price', 'image', 'id']

@@ -8,3 +8,4 @@ class populatedBasketSerializer(BasketSerializer):
   trainer = BasketListTrainerSerializer(many=True, read_only=True)
   owner = TrainerListUserSerializer()
 
+
