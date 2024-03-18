@@ -18,7 +18,7 @@ export default function Login() {
     if (res?.status === 200) {
       setToken(res.data.access)
       navigate('/')
-      
+
     } else if (res?.status === 401) {
 
       toast.error('Password or Username is incorrect!')
@@ -29,17 +29,21 @@ export default function Login() {
 
 
     <>
-        <h1 className="text-center bold display-3 mb-4">Login</h1>
       <div className="form-container">
+        <h1 className="text-center bold display-3 mb-4">Login</h1>
         <Form className='form' method="POST">
-          <input type="text" name="username" placeholder='Username' autoComplete='username' />
-          <input type="password" name="password" placeholder="Password" autoComplete='current-password' />
-          <button type="submit">Login</button>
+          
+          <div className="input-container">
+            <input type="text" name="username" placeholder='Username' autoComplete='username' />
+            <input type="password" name="password" placeholder="Password" autoComplete='current-password' />
+            <button type="submit">Login</button>
+          </div>
+
           {res && <p className='danger'>{res.data.message}</p>}
         </Form>
       </div>
 
-      <ToastContainer  />
+      <ToastContainer />
     </>
   )
 }

@@ -14,7 +14,8 @@ export default function CreateTrainer() {
     material: "",
     description: "",
     price: "",
-    size: ""
+    size: "",
+    condition: ""
   })
 
   function handleChange(e) {
@@ -50,6 +51,15 @@ export default function CreateTrainer() {
             <option value="3">Puma</option>
             <option value="4">Adidas</option>
             <option value="5">Nike</option>
+          </select >
+          <label htmlFor="condition">Condition</label >
+          <select name="condition" id="condition" onChange={handleChange}>
+            <option value="default" defaultValue>choose brand</option>
+            <option value="New with tags">New with tags</option>
+            <option value="New without tags">New without tags</option>
+            <option value="Good">Good</option>
+            <option value="Satisfactory">Satisfactory</option>
+            
           </select >
 
           <label hidden htmlFor="images">Images</label>

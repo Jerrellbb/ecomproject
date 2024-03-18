@@ -9,8 +9,8 @@ export default function EditTrainer() {
   const res = useActionData()
   const trainer = useLoaderData()
   const navigate = useNavigate()
-  const { id, name, description, image, price, material, brand, size, colour } = trainer
-  console.log(id)
+  const { id, name, description, image_1, price, material, brand, size, colour, condition,image_2, image_3 } = trainer
+
 
 
   useEffect(() => {
@@ -24,12 +24,15 @@ export default function EditTrainer() {
   const [formData, setFormData] = useState({
     name: name,
     brand: brand.id,
-    image: image,
+    image_1: image_1,
+    image_2: image_2,
+    image_3: image_3,
     material: material,
     description: description,
     price: price,
     size: size,
     colour: colour,
+    condition: condition
 
 
   })
@@ -42,10 +45,9 @@ export default function EditTrainer() {
   }
   const handleImageChange = (newImage) => {
     setFormData({ ...formData, image: newImage })
+
   }
-
-
-
+ 
   return (
     <>
       <div className="form-container">
@@ -72,12 +74,25 @@ export default function EditTrainer() {
             <option value="4">Fila</option>
             <option value="5">Reebok</option>
           </select >
+          <br/>
+          <br/>
+          <label htmlFor="condition">Condition</label >
+          <select name="condition" id="condition" onChange={handleChange}>
+            <option value="default" defaultValue>choose one</option>
+            <option value="New with tags">New with tags</option>
+            <option value="New without tags">New without tags</option>
+            <option value="Good">Good</option>
+            <option value="Satisfactory">Satisfactory</option>
+            
+          </select >
 
           <label hidden htmlFor="images">Images</label>
           <ImageUploadField formData={formData} setFormData={setFormData} />
           <button type="button" className="btn btn-primary" onClick={() => handleImageChange(null)}>
             Choose New Image
           </button>
+
+          
 
 
           <button type="submit">Edit</button>

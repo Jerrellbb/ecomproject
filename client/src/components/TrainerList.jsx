@@ -8,7 +8,7 @@ export default function TrainerList() {
 
   return (
     <Container>
-      <h1>All Trainers</h1>
+      <h1>Trainers</h1>
       <Row >
         {Trainers.map(trainer => (
           <Col key={trainer.id} md={4}>
@@ -19,8 +19,8 @@ export default function TrainerList() {
                 lg={3}
                 to={`/trainer/${trainer.id}`}>
                 <h2>{trainer.name}</h2>
-                <img src={trainer.image} alt={trainer.name} style={{ height: 200, width: 200 }} />
-                <p><strong>Price: </strong>£{trainer.price}</p>
+                <img  src={trainer.image_1} alt={trainer.name} style={{ height: 200, width: 200 }} />
+                <p><strong>Price: </strong>£{trainer.price} <br/> <strong>condition:</strong> {trainer.condition}</p>
               </Link>
             </div>
           </Col>

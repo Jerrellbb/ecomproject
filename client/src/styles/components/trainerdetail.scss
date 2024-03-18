@@ -16,8 +16,9 @@
   display: flex;
   justify-content: center;
   flex-grow: 1;
-
+  
   img{
+    background-color: rgb(159, 159, 159);
     border: rgb(255, 250, 250) solid;
     box-shadow: 0 0 20px rgb(129, 129, 129);
   }

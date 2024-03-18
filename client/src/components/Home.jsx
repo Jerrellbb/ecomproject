@@ -1,11 +1,11 @@
 
-
+import hero from '../assets/hero.webp'
 export default function Home(){
 
   return(
     <>
-    <h1>hello world</h1>
     
+    <img className='hero' src={hero}/>
     </>
   )
 }

@@ -1,19 +1,21 @@
 import { useLoaderData, useNavigate } from "react-router-dom"
-import { useState } from "react"
+
 import axios from 'axios'
-import { getToken } from "../../utils/helpers/common"
+import { getToken, getUserId } from "../../utils/helpers/common"
 
 
 export default function TrainerDetail() {
-  // const res = useActionData()
+
   const trainer = useLoaderData()
   const navigate = useNavigate()
 
-  const { id, name, brand, image, material, description, price, in_stock, size } = trainer
+  const { id, name, brand, image_1, image_2, image_3,  material, description, price, in_stock, size, owner } = trainer
   let brandName = brand.name.charAt(0).toUpperCase() + brand.name.slice(1)
-  const formData = {trainer: [`${id}`]}
-  console.log(formData)
-  console.log(brand.name)
+  const formData = {
+    action: 'add',
+    trainer: [`${id}`]}
+
+  console.log(in_stock)
 
   async function addTocart(e) {
     e.preventDefault()
@@ -45,7 +47,9 @@ export default function TrainerDetail() {
       <h1>{brandName}  {name}</h1>
       <div className="trainer-card">
         <div className='trainer-image'>
-          <img src={image} alt={name} style={{ height: 200, width: 200 }} />
+          <img src={image_1} alt={name} style={{ height: 200, width: 200 }} />
+          {image_2 && <img src={image_2} alt={name} style={{ height: 200, width: 200 }} />}
+          {image_3 && <img src={image_3} alt={name} style={{ height: 200, width: 200 }} />}
         </div>
         <div className="trainer-info">
           <p><strong>Price:</strong> £{price}</p>
@@ -63,16 +67,16 @@ export default function TrainerDetail() {
       <div className="detail-btns">
         <form  method="PATCH" onSubmit={addTocart} >
           <input type="hidden" name="trainer" value={id} />
-          <button type="submit" >Add to cart</button>
+          <button type="submit" onClick={() => navigate(`/trainers/`)} >Add to cart</button>
 
         </form>
-        <button
+        {getUserId() === owner.id && <button
           type="button"
 
           onClick={() => navigate(`/trainer/${id}/edit/`)}
         >
           Edit trainer
-        </button>
+        </button>}
       </div>
     </>
   )

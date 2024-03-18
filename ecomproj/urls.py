@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/auth/', include('users.urls')),
     path('api/trainer/', include('trainers.urls')),
     path('api/basket/', include('basket.urls')),
+    path('api/payment/', include('payment.urls')),
     
     
 ]

@@ -17,6 +17,7 @@ import TrainerDetail from "./components/TrainerDetail.jsx"
 import Cart from "./components/Cart.jsx"
 import CreateTrainer from "./components/CreateTrainer.jsx"
 import EditTrainer from "./components/EditTrainer.jsx"
+import ShippingAddressForm from "./components/PaymentAddress.jsx"
 
 //actions
 import { loginUser, registerUser } from "../utils/actions/auth.js"
@@ -33,11 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    
+
     children: [
       {
         path: "/",
-        element: <Home/ >
+        element: <Home />
       },
       {
         path: "/auth/login/",
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
         path: "/trainer/:id/",
         element: <TrainerDetail />,
         loader: async ({ params }) => singleTrainer(params.id),
-        action: async ({ request, params }) => updateCart(request, params.id ),
+        action: async ({ request, params }) => updateCart(request, params.id),
       },
       {
         path: "/basket/:id/",
@@ -75,14 +76,23 @@ const router = createBrowserRouter([
         element: <EditTrainer />,
         loader: async ({ params }) => singleTrainer(params.id),
         action: async ({ request, params }) => updateTrainer(request, params.id),
-      }
-    
-    
-      
+      },
+      {
+        path: "*",
+        element: <h1>404</h1>,
+      },
+      {
+        path: "/shippinginformation/",
+        element: <ShippingAddressForm />,
+        
+      },
+
+
+
     ]
 
 
-    
+
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

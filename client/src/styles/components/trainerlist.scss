@@ -2,13 +2,20 @@
   margin:10px;
   display: flex;
   justify-content: center;
+  background-color: rgb(159, 159, 159);
+  
   a{
     text-align: center;
     text-decoration: none;
-    color: black;
+    color: rgb(3, 3, 3);
+  }
+  img{
+    transition: transform 0.2s ease-in-out;
+  }
+  img:hover{
+    transform: scale(1.1); 
   }
   
   
-  border: rgb(255, 250, 250) solid;
     box-shadow: 0 0 20px rgb(129, 129, 129);
 }

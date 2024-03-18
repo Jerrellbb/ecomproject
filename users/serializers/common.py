@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from payment.serializers.common import ShippingAddressSerializer
 
 # use import ModelSerialiers next time instead of just seriealisers the sam as seriealisers.modelserialiser just shorter
 from ..models import User
@@ -34,4 +35,11 @@ class RegistrationSerializer(serializers.ModelSerializer):
 class TrainerListUserSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields = ['username', 'email']
+    fields = ['username', 'email', 'id']
+
+class UserSerializer(serializers.ModelSerializer):
+  shipping_address = ShippingAddressSerializer(many=True, read_only=True)
+  
+  class Meta:
+    model = User # the model that is used to serialize the queryset
+    fields = ['id', 'shipping_address'] # which fields to serialize

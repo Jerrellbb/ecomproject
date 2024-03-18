@@ -53,7 +53,7 @@ export function getUserId() {
     return userId
   }
 console.log(activeUserResult)
-  // If there is no active user, return null or handle accordingly
+  // If there is no active user, return null 
   return null
 }
 

@@ -16,8 +16,17 @@ h1{
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 0 20px rgb(0, 0, 0);
- 
 
+  .input-container input, button {
+    background-color: #fff;
+    padding: 1rem;
+    
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 300px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
   input{
     display:flex;
     margin: 10px;
@@ -26,6 +35,14 @@ h1{
     display: flex;
     margin: auto;
     margin-top: 30px;
+    text-transform: uppercase;
+    background-color: antiquewhite;
+    justify-content: center;
+    cursor: pointer;
+    
+  }
+  button:hover{
+    background-color: rgb(212, 194, 182);
   }
 }
 }
