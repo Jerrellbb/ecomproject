@@ -135,7 +135,7 @@ export default function Cart() {
 
         </Modal.Footer>
       </Modal>
-      <div>
+      <div className="pay-btn">
         <button onClick={() => shippingAddress.length === 0 ? navigate('/shippinginformation/') : handleShow()}>pay now</button>
       </div><ToastContainer />
     </>

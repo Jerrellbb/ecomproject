@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "react-router-dom"
+import { useLoaderData, useNavigate, Form } from "react-router-dom"
 
 import axios from 'axios'
 import { getToken, getUserId } from "../../utils/helpers/common"
@@ -21,8 +21,6 @@ export default function TrainerDetail() {
     e.preventDefault()
 
     try {
-
-
 
 
       const cartData = await JSON.parse(localStorage.getItem('cart'))
@@ -70,13 +68,17 @@ export default function TrainerDetail() {
           <button type="submit" onClick={() => navigate(`/trainers/`)} >Add to cart</button>
 
         </form>
-        {getUserId() === owner.id && <button
+        {getUserId() === owner.id && <><button
           type="button"
 
           onClick={() => navigate(`/trainer/${id}/edit/`)}
         >
           Edit trainer
-        </button>}
+        </button>
+        
+        <Form method='POST'>
+          <button >Delete Trainer</button>
+        </Form></>}
       </div>
     </>
   )

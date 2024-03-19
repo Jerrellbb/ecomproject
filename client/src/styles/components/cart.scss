@@ -1,5 +1,6 @@
 .cart-container {
   padding: 20px;
+  margin: 20px
 }
 
 .cart-list {
@@ -12,10 +13,12 @@
   align-items: center;
   margin-bottom: 10px;
   max-width: 500px;
+  border-bottom: black solid 0.5px;
 }
 
 .cart-image {
-  height: 50px;
+  height: 60px;
+  width: 60px;
   margin-right: 10px;
 }
 
@@ -49,3 +52,8 @@
   font-weight: bold;
 }
 
+.pay-btn{
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+}

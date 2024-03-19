@@ -36,11 +36,14 @@ export async function updateCart(request){
   const cartData = JSON.parse(localStorage.getItem('cart'))
   
   const data = await formToObj(request)
-  return await axios.patch(`/api/basket/${cartData.id}/`, data, {
+  const res = await axios.patch(`/api/basket/${cartData.id}/`, data, {
     validateStatus : () => true,
     headers: {
       Authorization: `Bearer ${getToken()}`
 
     }
   })
+  localStorage.setItem('cart', JSON.stringify(res.data))
+  
+  return res
 }

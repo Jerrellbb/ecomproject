@@ -9,7 +9,7 @@ export default function EditTrainer() {
   const res = useActionData()
   const trainer = useLoaderData()
   const navigate = useNavigate()
-  const { id, name, description, image_1, price, material, brand, size, colour, condition,image_2, image_3 } = trainer
+  const {  name, description, image_1, price, material, brand, size, colour, condition,image_2, image_3 } = trainer
 
 
 
@@ -47,7 +47,7 @@ export default function EditTrainer() {
     setFormData({ ...formData, image: newImage })
 
   }
- 
+
   return (
     <>
       <div className="form-container">
@@ -98,6 +98,7 @@ export default function EditTrainer() {
           <button type="submit">Edit</button>
           {res && <p className='danger'>{res.data.message}</p>}
         </Form>
+
       </div>
     </>
   )

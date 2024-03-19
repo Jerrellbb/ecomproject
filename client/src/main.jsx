@@ -21,13 +21,13 @@ import ShippingAddressForm from "./components/PaymentAddress.jsx"
 
 //actions
 import { loginUser, registerUser } from "../utils/actions/auth.js"
-import { createTrainer, updateTrainer } from "../utils/actions/trainers.js"
+import { createTrainer, updateTrainer, deleteTrainer } from "../utils/actions/trainers.js"
 
 //loaders
 import { getAllTrainers, singleTrainer, getCart } from "../utils/loaders.js"
 
 
-import { updateCart } from "../utils/actions/cart.js"
+
 
 
 const router = createBrowserRouter([
@@ -38,7 +38,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
+        loader: async ({ params }) => getAllTrainers(params),
       },
       {
         path: "/auth/login/",
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
         path: "/trainer/:id/",
         element: <TrainerDetail />,
         loader: async ({ params }) => singleTrainer(params.id),
-        action: async ({ request, params }) => updateCart(request, params.id),
+        action: async ({  params }) => deleteTrainer(params.id)
       },
       {
         path: "/basket/:id/",

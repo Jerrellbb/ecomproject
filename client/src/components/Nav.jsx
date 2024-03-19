@@ -2,6 +2,7 @@ import { Nav } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { signOutUser } from '../../utils/actions/auth'
 import { cartId, getUserId, cart } from '../../utils/helpers/common'
+import logo from '../assets/Krep.png'
 // import { useState, useEffect } from 'react'
 
 export default function NavBar() {
@@ -23,7 +24,10 @@ export default function NavBar() {
 
   return (
     <>
-      <nav  >
+      <nav className='nav-bar' >
+        <div className="logo">
+          <img src={logo}/>
+        </div>
         <div className="navlinks">
 
           <Nav.Link onClick={handleClick}> <button type='button' id='/'>Home</button> </Nav.Link>

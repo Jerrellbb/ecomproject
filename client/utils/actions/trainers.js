@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { formToObj, getToken } from '../helpers/common'
+import { redirect } from 'react-router-dom'
 
 export async function createTrainer(request){
 
@@ -26,3 +27,13 @@ export async function updateTrainer(request, id){
   })
 }
 
+export async function deleteTrainer(id){
+  await axios.delete(`/api/trainer/${id}/`, {
+    validateStatus : () => true,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      
+    }
+  })
+  return redirect('/trainers/')
+}

@@ -1,5 +1,63 @@
-.hero{
+
+
+
+
+.home-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   width: 100vw;
-  height: 25rem;
-  margin-top: 60px;
+  header{
+    margin-bottom: 30px;
+  }
+  
+}
+.hero-section{
+  border: black solid;
+  display: flex;
+  width: 100%;
+  
+    img{
+  
+      width: 33.3%;
+      
+    }
+    
+
+}
+
+.featured-section{
+  width: 100vw;
+  text-align: center;
+  border-bottom: black solid;
+}
+
+.about-section{
+  width: 100vw;
+  text-align: center;
+  border-bottom: black solid;
+  button{
+    margin-bottom: 10px;
+  }
+
+  p{
+    padding:0px 100px 0px 100px ;
+      }
+  
+}
+.carousel-caption{
+  
+  h3{
+    text-shadow: 0 0 5px white;
+    font-weight: 900;
+    font-size: 30px;
+  }
+ 
+}
+.carousel-item{
+  img{
+    width: 50%;
+  }
 }
