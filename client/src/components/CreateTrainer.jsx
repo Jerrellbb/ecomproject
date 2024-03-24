@@ -17,7 +17,8 @@ export default function CreateTrainer() {
     description: "",
     price: "",
     size: "",
-    condition: ""
+    condition: "",
+    gender:""
   })
 
   useEffect(() => {
@@ -70,6 +71,15 @@ export default function CreateTrainer() {
             <option value="New without tags">New without tags</option>
             <option value="Good">Good</option>
             <option value="Satisfactory">Satisfactory</option>
+            
+          </select >
+          <label htmlFor="gender">Gender:&nbsp;</label >
+          <select name="gender" id="gender" onChange={handleChange}>
+            <option value="default" defaultValue>Choose gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Unisex">Unisex</option>
+            
             
           </select >
 

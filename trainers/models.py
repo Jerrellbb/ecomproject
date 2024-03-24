@@ -16,6 +16,7 @@ class Trainer(models.Model):
     related_name='owned_trainers',
     null=True
   )
+  gender = models.CharField(max_length=50)
   size = models.PositiveIntegerField()
   image_1 = models.URLField(null=True, blank=True)
   image_2 = models.URLField(null=True, blank=True)

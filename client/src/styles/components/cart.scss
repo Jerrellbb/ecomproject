@@ -52,8 +52,51 @@
   font-weight: bold;
 }
 
-.pay-btn{
+#pay-now{
   display: flex;
   justify-content: end;
   margin-right: 20px;
+}
+.modal-body{
+display:flex;
+justify-content: space-between;
+
+.card-info{
+  position: relative;
+  button{
+    
+    
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #007bff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    
+  }
+  
+}
+}
+.cart-btn{
+  
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #007bff; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

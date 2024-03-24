@@ -1,12 +1,16 @@
 import { useLoaderData, useNavigate } from "react-router-dom"
 import { useEffect, useState, useCallback } from 'react'
 import Modal from 'react-bootstrap/Modal'
-
-import { ToastContainer, toast } from 'react-toastify';
-import { getUserId, getToken } from '../../utils/helpers/common'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+import { ToastContainer, toast } from 'react-toastify'
+import { getUserId, getToken } from '../../utils/helpers/common.js'
 import axios from "axios"
-export default function Cart() {
+import CheckoutForm from './CheckoutForm.jsx'
+
+export default function Basket() {
   const cart = useLoaderData()
+  const stripePromise = loadStripe('pk_test_51Ox73PAEr8yRclaw8vqOjlTHYuBzmYSt0QsT1XFpSi5y776T71sgXAUa7gmldfXS0mQslLx50Teppdq1VlJt9A5e003EskoOfb');
 
   const { trainer } = cart
   const navigate = useNavigate()
@@ -19,12 +23,9 @@ export default function Cart() {
 
     setShow(false)
   }
-  function handleCloseAndConfirm() {
-    toast.success('Your order has been placed!')
-    setShow(false)
-  }
+
   const handleShow = () => setShow(true);
-  
+
   const price = trainer.map(item => item.price)
   function totalPrice(total, price) {
     return total + price
@@ -47,14 +48,14 @@ export default function Cart() {
   }, [])
 
   useEffect(() => {
-  //set trainersincart to useladerdata
-    if(trainer) {
+    //set trainersincart to useladerdata
+    if (trainer) {
       setTrainersInCart(trainer)
     }
     getProfile()
   }, [getProfile, trainer])
 
-  
+
 
 
   async function removeItemFromCart(e, itemId) {
@@ -67,7 +68,7 @@ export default function Cart() {
 
 
       const cartData = await JSON.parse(localStorage.getItem('cart'))
-      const res = await axios.patch(`/api/basket/${cartData.id}/`,  {
+      const res = await axios.patch(`/api/basket/${cartData.id}/`, {
         action: 'delete',
         trainer: [itemId]
       }, {
@@ -77,21 +78,18 @@ export default function Cart() {
         }
       })
       if (res.status === 200) {
-        
         setTrainersInCart(prevTrainer => prevTrainer.filter(item => item.id !== itemId))
         toast.success('Item removed from cart')
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error('Failed to remove item from cart')
     }
-} catch (error) {
-    console.log(error);
-    toast.error('Failed to remove item from cart')
-}
-      
-
   }
 
   return (
     <>
-      <div className="cart-container">
+      {trainer.length > 0 ? (<div className="cart-container">
         <ul className="cart-list">
           {trainersInCart.map(t => (
             <li key={t.id} className="cart-item">
@@ -100,7 +98,7 @@ export default function Cart() {
                 <p className="cart-name">{t.name}</p>
                 <p className="cart-price">£{t.price}</p>
               </div>
-              <form method="PATCH" onSubmit={(e) => removeItemFromCart(e, t.id ) } >
+              <form method="PATCH" onSubmit={(e) => removeItemFromCart(e, t.id)} >
                 <input type="hidden" name="trainer" value={t.id} />
                 <button type="submit" className="cart-remove" >Remove</button>
 
@@ -113,31 +111,45 @@ export default function Cart() {
             <p>Total: £{price.reduce(totalPrice, 0)}</p>
           </li>
         </ul>
-      </div>
+      </div>) : (<h1>Your cart is empty. Head to the shop to fill it up!</h1>)}
 
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Shipping Details</Modal.Title>
         </Modal.Header>
-        <Modal.Body> {shippingAddress.map(info =>
-          <>
-            <p>{info.full_name}</p>
-            <p>{info.address1}</p>
-            <p>{info.country}</p>
-            <p>{info.city}</p>
-            <p>{info.postcode}</p> </>)} </Modal.Body>
+        <Modal.Body>
+          <div className="shipping-info">{shippingAddress.map(info =>
+            <>
+            <div key={info.id}>
+              <p>{info.full_name}</p>
+              <p>{info.address1}</p>
+              <p>{info.country}</p>
+              <p>{info.city}</p>
+              <p>{info.postcode}</p>
+              </div>
+              
+            </>)}</div>
+
+          <div className="card-info" style={{ width: '70%' }}>  <Elements stripe={stripePromise} >
+            <CheckoutForm />
+          </Elements></div>
+
+
+        </Modal.Body>
 
         <Modal.Footer>
-          <button onClick={handleCloseAndConfirm}>
-            Confirm Purchase
+          <button className="cart-btn" onClick={handleClose}>
+            Close
           </button>
 
         </Modal.Footer>
       </Modal>
-      <div className="pay-btn">
-        <button onClick={() => shippingAddress.length === 0 ? navigate('/shippinginformation/') : handleShow()}>pay now</button>
-      </div><ToastContainer />
+
+      {trainer.length < 0 && (<div id="pay-now" >
+        <button className="cart-btn"  onClick={() => shippingAddress.length === 0 ? navigate('/shippinginformation/') : handleShow()}>pay now</button>
+      </div>)}
+      <ToastContainer />
     </>
 
   )

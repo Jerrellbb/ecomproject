@@ -47,3 +47,27 @@ export async function updateCart(request){
   
   return res
 }
+
+export async function deleteAndCreateCart() {
+  try {
+    
+    const cartData = JSON.parse(localStorage.getItem('cart'));
+    
+    // If there's an existing cart, delete it
+    if (cartData) {
+      await axios.delete(`/api/basket/${cartData.id}/`, {
+        validateStatus: () => true,
+        headers: {
+          Authorization: `Bearer ${getToken()}`
+        }
+      });
+    }
+    
+    // Create a new cart
+    const response = await createCart();
+    return response;
+  } catch (error) {
+    console.error('Error deleting and creating cart:', error);
+    throw error;
+  }
+}

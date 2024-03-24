@@ -9,13 +9,19 @@ export default function TrainerDetail() {
   const trainer = useLoaderData()
   const navigate = useNavigate()
 
-  const { id, name, brand, image_1, image_2, image_3,  material, description, price, in_stock, size, owner } = trainer
+  const { id, name, brand, image_1, image_2, image_3,  material, description, price, in_stock, size, owner, gender } = trainer
   let brandName = brand.name.charAt(0).toUpperCase() + brand.name.slice(1)
   const formData = {
     action: 'add',
     trainer: [`${id}`]}
 
-  console.log(in_stock)
+  function inStock(){
+    if (in_stock === true) {
+      return 'Available'
+    } else {
+      return 'Unavailable'
+    }
+  }
 
   async function addTocart(e) {
     e.preventDefault()
@@ -52,22 +58,24 @@ export default function TrainerDetail() {
         <div className="trainer-info">
           <p><strong>Price:</strong> £{price}</p>
           <p><strong>Size: </strong>{size}</p>
+          <p><strong>Gender:</strong> {gender}</p>
           
           <p><strong>Material: </strong>{material}</p>
           {description ? (
-      <p><strong>Description:</strong> {description}</p>
-    ) : (
-      <p><strong>Description:</strong>Lorem ipsum dolor sit amet</p>
-    )}
+            <p><strong>Description:</strong> {description}</p>
+            ) : (
+              <p><strong>Description:</strong> Lorem ipsum dolor sit amet</p>
+              )}
+              <p><strong>Stock</strong>: {inStock()}</p>
         </div>
       </div >
 
       <div className="detail-btns">
-        <form  method="PATCH" onSubmit={addTocart} >
+        {in_stock === true ? (<form  method="PATCH" onSubmit={addTocart} >
           <input type="hidden" name="trainer" value={id} />
-          <button type="submit" onClick={() => navigate(`/trainers/`)} >Add to cart</button>
+          <button id="add-to-cart" type="submit" onClick={() => navigate(`/trainers/`)} >Add to cart</button>
 
-        </form>
+        </form>) : (<button>Unavailable</button>)}
         {getUserId() === owner.id && <><button
           type="button"
 

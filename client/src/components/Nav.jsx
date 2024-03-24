@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { signOutUser } from '../../utils/actions/auth'
 import { cartId, getUserId, cart } from '../../utils/helpers/common'
 import logo from '../assets/Krep.png'
-// import { useState, useEffect } from 'react'
+
 
 export default function NavBar() {
 
   const activeUserId = getUserId()
   const navigate = useNavigate()
-
+  console.log(activeUserId)
   const handleClick = (e) => {
     navigate(`${e.target.id}`)
   }
@@ -40,14 +40,14 @@ export default function NavBar() {
           {activeUserId ? (
             <>
               <Nav.Link onClick={handleSignOut}> <button type='button' id='/signout/'>Sign Out</button> </Nav.Link>
-              <Nav.Link onClick={handleClick}> <button type='button' id='/trainer/create/'>Sell a Trainer</button> </Nav.Link>
+              
             </>
           ) : (
             <>
               <Nav.Link onClick={handleClick}> <button type='button' id='/auth/login/'>Login</button> </Nav.Link>
               <Nav.Link onClick={handleClick}> <button type='button' id='/auth/register/'>Register</button> </Nav.Link>
             </>)}
-
+          {activeUserId === 3 && (<Nav.Link onClick={handleClick}> <button type='button' id='/trainer/create/'>Sell a Trainer</button> </Nav.Link>)}
 
 
 

@@ -11,3 +11,10 @@ class Basket(models.Model):
     related_name='owned_basket',
     null=True
   )
+
+  def calculate_total_amount(self):
+        total_amount = 0
+        for trainer in self.trainer.all():
+            
+            total_amount += trainer.price
+        return total_amount

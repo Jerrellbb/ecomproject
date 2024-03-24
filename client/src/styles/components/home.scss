@@ -39,7 +39,19 @@
   text-align: center;
   border-bottom: black solid;
   button{
-    margin-bottom: 10px;
+    
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
 
   p{
@@ -56,8 +68,27 @@
   }
  
 }
-.carousel-item{
-  img{
-    width: 50%;
-  }
+// .carousel-item{
+//   img{
+//     width: 50%;
+//   }
+// }
+
+
+.carousel-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50%, 50%); 
+  width: 50%;
+  height: 50%;
+  object-fit: cover; 
+  
 }

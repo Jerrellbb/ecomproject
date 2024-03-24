@@ -9,7 +9,7 @@ export default function EditTrainer() {
   const res = useActionData()
   const trainer = useLoaderData()
   const navigate = useNavigate()
-  const {  name, description, image_1, price, material, brand, size, colour, condition,image_2, image_3 } = trainer
+  const {  name, description, image_1, price, material, brand, size, colour, condition,image_2, image_3, gender } = trainer
 
 
 
@@ -32,7 +32,8 @@ export default function EditTrainer() {
     price: price,
     size: size,
     colour: colour,
-    condition: condition
+    condition: condition,
+    gender: gender,
 
 
   })
@@ -83,6 +84,17 @@ export default function EditTrainer() {
             <option value="New without tags">New without tags</option>
             <option value="Good">Good</option>
             <option value="Satisfactory">Satisfactory</option>
+            
+          </select >
+
+          
+          <label htmlFor="gender">Gender:&nbsp;</label >
+          <select name="gender" id="gender" onChange={handleChange}>
+            <option value="default" defaultValue>Choose gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Unisex">Unisex</option>
+            
             
           </select >
 

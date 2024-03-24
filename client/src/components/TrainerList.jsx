@@ -63,6 +63,7 @@ export default function TrainerList() {
                   to={`/trainer/${trainer.id}`}>
                   <h2>{trainer.name}</h2>
                   <img src={trainer.image_1} alt={trainer.name} style={{ height: 200, width: 200 }} />
+                  
                   <p><strong>Price: </strong>£{trainer.price} <br /> <strong>condition:</strong> {trainer.condition}</p>
                 </Link>
               </div>

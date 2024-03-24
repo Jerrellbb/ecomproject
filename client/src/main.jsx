@@ -14,7 +14,7 @@ import Register from "./components/Register.jsx"
 import Home from "./components/Home.jsx"
 import TrainerList from "./components/TrainerList.jsx"
 import TrainerDetail from "./components/TrainerDetail.jsx"
-import Cart from "./components/Cart.jsx"
+import Basket from "./components/Basket.jsx"
 import CreateTrainer from "./components/CreateTrainer.jsx"
 import EditTrainer from "./components/EditTrainer.jsx"
 import ShippingAddressForm from "./components/PaymentAddress.jsx"
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/basket/:id/",
-        element: <Cart />,
+        element: <Basket />,
         loader: async ({ params }) => getCart(params.id),
       },
       {
