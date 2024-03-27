@@ -45,8 +45,6 @@ def create_payment_intent(request):
                     trainer.in_stock = False
                   trainer.save()
           except Trainer.DoesNotExist:
-              # Handle the case where the trainer with the given ID does not exist
-              # You might log an error or take other appropriate action
               pass
 
       
