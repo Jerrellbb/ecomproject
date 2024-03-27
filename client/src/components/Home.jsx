@@ -22,7 +22,7 @@ export default function Home() {
       <br/>
         <br/>
         <br/>
-        <h2>Featured Trainers</h2>
+        <h2>Latest Trainers</h2>
         
         <p>Discover the latest and hottest Krep in our collection.</p>
         <CarouselFade loaderData={trainers} />

@@ -21,6 +21,8 @@ class Trainer(models.Model):
   image_1 = models.URLField(null=True, blank=True)
   image_2 = models.URLField(null=True, blank=True)
   image_3 = models.URLField(null=True, blank=True)
+  available_stock = models.IntegerField(default=1)
+
 
 
 

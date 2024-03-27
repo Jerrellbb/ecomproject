@@ -25,3 +25,13 @@ export async function getProfile(){
   const res = await axios.get(`/api/auth/${userId}/`)
   return res.data
 }
+
+export async function getLatestTrainers(){
+  const res = await axios.get('/api/trainer/')
+  const trainers = res.data
+
+  trainers.sort((a, b) => b.id - a.id)
+  const latestTrainers = trainers.slice(0, 4)
+  return latestTrainers
+
+}

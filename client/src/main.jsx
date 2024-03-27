@@ -24,7 +24,7 @@ import { loginUser, registerUser } from "../utils/actions/auth.js"
 import { createTrainer, updateTrainer, deleteTrainer } from "../utils/actions/trainers.js"
 
 //loaders
-import { getAllTrainers, singleTrainer, getCart } from "../utils/loaders.js"
+import { getAllTrainers, singleTrainer, getCart, getLatestTrainers } from "../utils/loaders.js"
 
 
 
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: async ({ params }) => getAllTrainers(params),
+        loader: async ({ params }) => getLatestTrainers(params),
       },
       {
         path: "/auth/login/",

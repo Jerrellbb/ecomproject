@@ -1,0 +1,170 @@
+[
+{
+  "model": "trainers.trainer",
+  "pk": 1,
+  "fields": {
+    "name": "Air Force 1",
+    "colour": "White",
+    "description": "",
+    "material": "Leather",
+    "condition": "brand new with tags",
+    "in_stock": true,
+    "price": 70.99,
+    "brand": 1,
+    "owner": 3,
+    "gender": "male",
+    "size": 12,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710165486/projects/ccwrflsatywx8gckgdtj.webp",
+    "image_2": null,
+    "image_3": null,
+    "available_stock": 1
+  }
+},
+{
+  "model": "trainers.trainer",
+  "pk": 3,
+  "fields": {
+    "name": "Air Force 1 Mid",
+    "colour": "white",
+    "description": "the og",
+    "material": "Coated Leather",
+    "condition": "brand new with tags",
+    "in_stock": true,
+    "price": 112.99,
+    "brand": 1,
+    "owner": 3,
+    "gender": "male",
+    "size": 10,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710165655/projects/ftlsdfvhwqheafdimpod.webp",
+    "image_2": null,
+    "image_3": null,
+    "available_stock": 1
+  }
+},
+{
+  "model": "trainers.trainer",
+  "pk": 4,
+  "fields": {
+    "name": "Suede Xl",
+    "colour": "Red and White",
+    "description": "Let the PUMA Suede XL take the lead in your fashion wardrobe! Made with a durable suede upper, these shoes ensure robust usage as you head out again and again. The leather formstrip adds a luxe look, while the mesh lining and sockliner provides all-day freshness! Fitted with a suede tongue and mesh binding, these chunky sole shoes feel lightweight and keep you ready for anything your day throws at you! Running late? Run faster in the XL; have a coffee date? Look cuter with the XL; photoshoot for the ‘gram? The Suede XL has got your back",
+    "material": "Seude",
+    "condition": "New with tags",
+    "in_stock": true,
+    "price": 44.0,
+    "brand": 3,
+    "owner": 3,
+    "gender": "male",
+    "size": 5,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710158292/projects/i2jdsioonlx0fjex6ylr.webp",
+    "image_2": null,
+    "image_3": null,
+    "available_stock": 1
+  }
+},
+{
+  "model": "trainers.trainer",
+  "pk": 5,
+  "fields": {
+    "name": "Hurrikaze Ii",
+    "colour": "Darkest Olive-Core Black-Crimson Mist",
+    "description": null,
+    "material": "Coated Leather",
+    "condition": "New with tags",
+    "in_stock": true,
+    "price": 21.0,
+    "brand": 5,
+    "owner": 3,
+    "gender": "male",
+    "size": 11,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710158487/projects/jkfvaki1zrybrgapvirm.webp",
+    "image_2": null,
+    "image_3": null,
+    "available_stock": 1
+  }
+},
+{
+  "model": "trainers.trainer",
+  "pk": 6,
+  "fields": {
+    "name": "La Trainer 2",
+    "colour": "Grey",
+    "description": "Energize your style game with the adidas LA Trainer II. Inspired by the ‘80s running icon, these sneakers embody your sporty power the best. The synthetic upper feels comfortable, while the textile lining wraps your feet in unmatched breathability. Made for great grip and traction, the rubber outsole boosts your steps with confidence, so you breeze through daily challenges like a pro.",
+    "material": "Suede",
+    "condition": "New with tags",
+    "in_stock": true,
+    "price": 30.0,
+    "brand": 2,
+    "owner": 3,
+    "gender": "male",
+    "size": 9,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710788742/projects/kbbw2wp5a6dcxjsk1cx5.webp",
+    "image_2": "https://res.cloudinary.com/du3laub4f/image/upload/v1710788742/projects/phvlnvfjlzsyq06kkifi.webp",
+    "image_3": "https://res.cloudinary.com/du3laub4f/image/upload/v1710788743/projects/akrsvppwt0nznwhx1aeo.webp",
+    "available_stock": 1
+  }
+},
+{
+  "model": "trainers.trainer",
+  "pk": 7,
+  "fields": {
+    "name": "RGB Fuse",
+    "colour": "Cream",
+    "description": "",
+    "material": "Leather",
+    "condition": "brand new with tags",
+    "in_stock": true,
+    "price": 30.0,
+    "brand": 4,
+    "owner": 3,
+    "gender": "male",
+    "size": 9,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710163679/projects/ocojystvzwgedvxwbdtl.png",
+    "image_2": null,
+    "image_3": null,
+    "available_stock": 1
+  }
+},
+{
+  "model": "trainers.trainer",
+  "pk": 8,
+  "fields": {
+    "name": "Jordan 1 Mid",
+    "colour": "White and Black",
+    "description": "",
+    "material": "Leather",
+    "condition": "default",
+    "in_stock": true,
+    "price": 129.0,
+    "brand": 1,
+    "owner": 3,
+    "gender": "male",
+    "size": 9,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710788308/projects/cwosxwfrib8rreav5wx6.webp",
+    "image_2": "https://res.cloudinary.com/du3laub4f/image/upload/v1710788309/projects/djourgxso7h8du0wmslw.webp",
+    "image_3": "https://res.cloudinary.com/du3laub4f/image/upload/v1710788310/projects/rmoqtriebbnfluabux4b.webp",
+    "available_stock": 1
+  }
+},
+{
+  "model": "trainers.trainer",
+  "pk": 9,
+  "fields": {
+    "name": "MB.03",
+    "colour": "Yellow and Black",
+    "description": "Sport Trainer",
+    "material": "Leather",
+    "condition": "New without tags",
+    "in_stock": true,
+    "price": 34.99,
+    "brand": 3,
+    "owner": 3,
+    "gender": "male",
+    "size": 5,
+    "image_1": "https://res.cloudinary.com/du3laub4f/image/upload/v1710794403/projects/sfdylnxqktzfamcbczyz.webp",
+    "image_2": "https://res.cloudinary.com/du3laub4f/image/upload/v1710794404/projects/tvnrbbzs2uwnwzttuflk.webp",
+    "image_3": "https://res.cloudinary.com/du3laub4f/image/upload/v1710794404/projects/jczwglf0t5pxr1rse6ez.webp",
+    "available_stock": 1
+  }
+}
+]

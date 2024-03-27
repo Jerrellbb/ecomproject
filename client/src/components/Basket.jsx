@@ -86,7 +86,7 @@ export default function Basket() {
       toast.error('Failed to remove item from cart')
     }
   }
-
+  
   return (
     <>
       {trainer.length > 0 ? (<div className="cart-container">
@@ -108,7 +108,7 @@ export default function Basket() {
           ))}
           <li className="cart-total">
             <p>Number of Items: {trainer.length}</p>
-            <p>Total: £{price.reduce(totalPrice, 0)}</p>
+            <p>Total: £{price.reduce(totalPrice, 0).toFixed(2)}</p>
           </li>
         </ul>
       </div>) : (<h1>Your cart is empty. Head to the shop to fill it up!</h1>)}
@@ -146,7 +146,7 @@ export default function Basket() {
         </Modal.Footer>
       </Modal>
 
-      {trainer.length < 0 && (<div id="pay-now" >
+      {trainer.length > 0 && (<div id="pay-now" >
         <button className="cart-btn"  onClick={() => shippingAddress.length === 0 ? navigate('/shippinginformation/') : handleShow()}>pay now</button>
       </div>)}
       <ToastContainer />

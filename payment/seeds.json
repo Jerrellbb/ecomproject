@@ -1,0 +1,28 @@
+[
+{
+  "model": "payment.shippingaddress",
+  "pk": 2,
+  "fields": {
+    "owner": 3,
+    "full_name": "Jerrell Boyer",
+    "address1": "33 Everington St",
+    "address2": "",
+    "country": "United Kingdom",
+    "city": "London",
+    "postcode": "W6 8DX"
+  }
+},
+{
+  "model": "payment.shippingaddress",
+  "pk": 8,
+  "fields": {
+    "owner": 4,
+    "full_name": "Jerrell Boyer",
+    "address1": "33 Everington St",
+    "address2": "",
+    "country": "United Kingdom",
+    "city": "London",
+    "postcode": "W6 8DX"
+  }
+}
+]
