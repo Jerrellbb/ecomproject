@@ -132,7 +132,7 @@ export default function Basket() {
             </>)}</div>
 
           <div className="card-info" style={{ width: '70%' }}>  <Elements stripe={stripePromise} >
-            <CheckoutForm />
+            <CheckoutForm shippingAddress={shippingAddress} trainersInCart={trainersInCart}  />
           </Elements></div>
 
 

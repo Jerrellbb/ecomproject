@@ -10,7 +10,10 @@ from .models import ShippingAddress
 from basket.models import Basket
 from trainers.models import Trainer
 from django.views.decorators.csrf import csrf_exempt
+from django.db import transaction
+from orders.models import Order
 # Create your views here.
+# stripe test key
 stripe.api_key = 'sk_test_51Ox73PAEr8yRclawEQxBVbosqVp5iZa9BUSxgvk8Q1JMG8zmbz46Ic0ABLTFAQYFFwPgxEnyNP1jOO5GsTDjGINl00gpQSb3YY'
 
 class ShippingAddressCreateView(OwnerListCreateView):
@@ -24,6 +27,8 @@ class ShippingAddressDetailView(RetrieveUpdateDestroyAPIView):
   serializer_class = ShippingAddressSerializer
   permission_classes = [IsOwnerOrReadOnly]
 
+
+# create a payment intent using the Stripe API
 @csrf_exempt
 def create_payment_intent(request):
     try:
@@ -35,6 +40,9 @@ def create_payment_intent(request):
         basket = Basket.objects.get(pk=basket_id)
         total_amount = basket.calculate_total_amount()
 
+        user_shipping_address = data.get('shipping_address')
+        
+        # decrease stock of trainers in basket
         trainer_ids = list(basket.trainer.values_list('id', flat=True))
         for trainer_id in trainer_ids:
           try:
@@ -46,7 +54,16 @@ def create_payment_intent(request):
                   trainer.save()
           except Trainer.DoesNotExist:
               pass
-
+          
+        # create new order in databse with succesful payment
+        with transaction.atomic():
+            order = Order.objects.create(
+                user=basket.owner,
+                shipping_address=user_shipping_address, 
+                total_price=total_amount,
+                
+            )
+            order.trainers.set(basket.trainer.all())
       
       
                 

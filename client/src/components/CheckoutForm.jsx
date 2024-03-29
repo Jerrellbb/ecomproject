@@ -7,7 +7,7 @@ import {  toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { deleteAndCreateCart } from '../../utils/actions/cart'
 
-const CheckoutForm = () => {
+const CheckoutForm = ({shippingAddress, trainersInCart}) => {
   
   const stripe = useStripe()
   const elements = useElements()
@@ -17,7 +17,10 @@ const CheckoutForm = () => {
     event.preventDefault()
     try{
     const { data } = await axios.post('/api/payment/create-payment-intent/', {
-      basketId: Basket
+      basketId: Basket,
+      trainers: trainersInCart,
+      shipping_address: shippingAddress
+
     })
     let clientSecret = data.client_secret
 
