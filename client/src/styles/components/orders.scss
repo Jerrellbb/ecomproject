@@ -1,0 +1,37 @@
+.orders-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.order-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.shipping-address,
+.trainers-list {
+  margin-top: 10px;
+}
+
+.shipping-address ul,
+.trainers-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.shipping-address h4,
+.trainers-list h4 {
+  margin-bottom: 5px;
+}
+
+.shipping-address li,
+.trainers-list li {
+  margin-bottom: 5px;
+}
+
+.shipping-address li strong {
+  font-weight: bold;
+}

@@ -5,7 +5,7 @@ from django.db import models
 class Order(models.Model):
     
     user = models.ForeignKey('users.User', on_delete=models.CASCADE)
-    shipping_address = models.TextField(max_length=1500)
+    shipping_address = models.ForeignKey('payment.ShippingAddress', on_delete=models.CASCADE)
     trainers = models.ManyToManyField(to='trainers.Trainer', related_name='orderd_trainers', blank=True)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)

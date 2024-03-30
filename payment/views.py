@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from .models import ShippingAddress
 from basket.models import Basket
 from trainers.models import Trainer
+
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
 from orders.models import Order
@@ -40,7 +41,7 @@ def create_payment_intent(request):
         basket = Basket.objects.get(pk=basket_id)
         total_amount = basket.calculate_total_amount()
 
-        user_shipping_address = data.get('shipping_address')
+        
         
         # decrease stock of trainers in basket
         trainer_ids = list(basket.trainer.values_list('id', flat=True))
@@ -57,9 +58,11 @@ def create_payment_intent(request):
           
         # create new order in databse with succesful payment
         with transaction.atomic():
+            
+            user_shipping_address = ShippingAddress.objects.get(owner=basket.owner.id)
             order = Order.objects.create(
                 user=basket.owner,
-                shipping_address=user_shipping_address, 
+                shipping_address_id=user_shipping_address.id, 
                 total_price=total_amount,
                 
             )

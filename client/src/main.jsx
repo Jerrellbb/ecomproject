@@ -18,13 +18,16 @@ import Basket from "./components/Basket.jsx"
 import CreateTrainer from "./components/CreateTrainer.jsx"
 import EditTrainer from "./components/EditTrainer.jsx"
 import ShippingAddressForm from "./components/PaymentAddress.jsx"
-
+import OrderList from "./components/OrdersList.jsx"
+import SingleOrder from "./components/SingleOrder.jsx"
 //actions
 import { loginUser, registerUser } from "../utils/actions/auth.js"
 import { createTrainer, updateTrainer, deleteTrainer } from "../utils/actions/trainers.js"
+import { updateFulfilledOrder } from "../utils/actions/orders.js"
 
 //loaders
-import { getAllTrainers, singleTrainer, getCart, getLatestTrainers } from "../utils/loaders.js"
+import { getAllTrainers, singleTrainer, getCart, getLatestTrainers, allOrders, singleOrder } from "../utils/loaders.js"
+
 
 
 
@@ -87,6 +90,18 @@ const router = createBrowserRouter([
         element: <ShippingAddressForm />,
         
       },
+      {
+        path: "/orders/",
+        element: <OrderList/>,
+        loader: async ({ params }) => allOrders(params),
+        
+      },
+      {
+        path: "/order/:id",
+        element: <SingleOrder />,
+        loader: async ({ params }) => singleOrder(params.id),
+        action: async ({ request, params }) => updateFulfilledOrder(request, params.id)
+      }
 
 
 

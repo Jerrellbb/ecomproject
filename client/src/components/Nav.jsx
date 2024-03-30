@@ -47,7 +47,10 @@ export default function NavBar() {
               <Nav.Link onClick={handleClick}> <button type='button' id='/auth/login/'>Login</button> </Nav.Link>
               <Nav.Link onClick={handleClick}> <button type='button' id='/auth/register/'>Register</button> </Nav.Link>
             </>)}
-          {activeUserId === 3 && (<Nav.Link onClick={handleClick}> <button type='button' id='/trainer/create/'>Sell a Trainer</button> </Nav.Link>)}
+          {activeUserId === 3 && (<>
+          <Nav.Link onClick={handleClick}> <button type='button' id='/trainer/create/'>Sell a Trainer</button> </Nav.Link>
+          <Nav.Link onClick={handleClick}> <button type='button' id='/orders/'>orders</button> </Nav.Link>
+          </>)}
 
 
 
