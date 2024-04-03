@@ -13,9 +13,12 @@ from trainers.models import Trainer
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
 from orders.models import Order
+import environ
+
+env = environ.Env()
 # Create your views here.
 # stripe test key
-stripe.api_key = 'sk_test_51Ox73PAEr8yRclawEQxBVbosqVp5iZa9BUSxgvk8Q1JMG8zmbz46Ic0ABLTFAQYFFwPgxEnyNP1jOO5GsTDjGINl00gpQSb3YY'
+stripe.api_key = env('STRIPE_KEY')
 
 class ShippingAddressCreateView(OwnerListCreateView):
   queryset = ShippingAddress.objects.all()
