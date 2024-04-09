@@ -9,7 +9,7 @@ export default function EditTrainer() {
   const res = useActionData()
   const trainer = useLoaderData()
   const navigate = useNavigate()
-  const {  name, description, image_1, price, material, brand, size, colour, condition,image_2, image_3, gender } = trainer
+  const { name, description, image_1, price, material, brand, size, colour, image_2, image_3, gender } = trainer
 
 
 
@@ -32,7 +32,7 @@ export default function EditTrainer() {
     price: price,
     size: size,
     colour: colour,
-    condition: condition,
+
     gender: gender,
 
 
@@ -51,67 +51,82 @@ export default function EditTrainer() {
 
   return (
     <>
+
       <div className="form-container">
         <h1 className="text-center bold display-3 mb-4">Edit your trainer</h1>
         <Form className='form' method="POST"  >
-          <input type="text" name="name" placeholder='name of trainer' onChange={handleChange} value={formData.name} />
+          <div className="form-group">
+            <label htmlFor="name">Name of Trainer</label>
+            <input type="text" id="name" name="name" placeholder='Name of Trainer' onChange={handleChange} value={formData.name} />
+          </div>
 
-          <input type="text" name="colour" placeholder='colour of trainer' onChange={handleChange} value={formData.colour} />
+          <div className="form-group">
+            <label htmlFor="colour">Colour of Trainer</label>
+            <input type="text" id="colour" name="colour" placeholder='Colour of Trainer' onChange={handleChange} value={formData.colour} />
+          </div>
 
-          <input type="text" name="material" placeholder='material' onChange={handleChange} value={formData.material} />
+          <div className="form-group">
+            <label htmlFor="material">Material</label>
+            <input type="text" id="material" name="material" placeholder='Material' onChange={handleChange} value={formData.material} />
+          </div>
 
-          <input type="text" name="description" placeholder='About the trainer' onChange={handleChange} value={formData.description} />
+          <div className="form-group">
+            <label htmlFor="description">About the Trainer</label>
+            <input type="text" id="description" name="description" placeholder='About the Trainer' onChange={handleChange} value={formData.description} />
+          </div>
 
-          <input type="number" name="price" placeholder='e.g. 10.99' step="0.01" onChange={handleChange} value={formData.price} />
+          <div className="form-group">
+            <label htmlFor="price">Price</label>
+            <input type="number" id="price" name="price" placeholder='e.g. 10.99' step="0.01" onChange={handleChange} value={formData.price} />
+          </div>
 
-          <input type="number" name="size" placeholder='e.g. 7' onChange={handleChange} value={formData.size} />
+          <div className="form-group">
+            <label htmlFor="size">Size</label>
+            <input type="number" id="size" name="size" placeholder='e.g. 7' onChange={handleChange} value={formData.size} />
+          </div>
 
-          <label htmlFor="brand">Brand</label >
-          <select name="brand" id="brand" onChange={handleChange} value={formData.brand}>
-            <option value="default" defaultValue>choose brand</option>
-            <option value="1">Nike</option>
-            <option value="2">Adidas</option>
-            <option value="3">Puma</option>
-            <option value="4">Fila</option>
-            <option value="5">Reebok</option>
-          </select >
-          <br/>
-          <br/>
-          <label htmlFor="condition">Condition</label >
-          <select name="condition" id="condition" onChange={handleChange}>
-            <option value="default" defaultValue>choose one</option>
-            <option value="New with tags">New with tags</option>
-            <option value="New without tags">New without tags</option>
-            <option value="Good">Good</option>
-            <option value="Satisfactory">Satisfactory</option>
-            
-          </select >
+          <div className="form-group">
+            <label htmlFor="gender">Gender</label><br />
+            <select id="gender" name="gender" onChange={handleChange}>
+              <option value="default" defaultValue>Choose gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Unisex">Unisex</option>
+            </select>
+          </div>
 
-          
-          <label htmlFor="gender">Gender:&nbsp;</label >
-          <select name="gender" id="gender" onChange={handleChange}>
-            <option value="default" defaultValue>Choose gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Unisex">Unisex</option>
-            
-            
-          </select >
+          <div className="form-group">
+            <label htmlFor="brand">Brand</label><br />
+            <select id="brand" name="brand" onChange={handleChange} value={formData.brand}>
+              <option value="default" defaultValue>Choose brand</option>
+              <option value="1">Nike</option>
+              <option value="2">Adidas</option>
+              <option value="3">Puma</option>
+              <option value="4">Fila</option>
+              <option value="5">Reebok</option>
+            </select>
+          </div>
 
-          <label hidden htmlFor="images">Images</label>
-          <ImageUploadField formData={formData} setFormData={setFormData} />
-          <button type="button" className="btn btn-primary" onClick={() => handleImageChange(null)}>
-            Choose New Image
-          </button>
+          <div className="form-group">
+            <label hidden htmlFor="images">Images</label>
+            <ImageUploadField formData={formData} setFormData={setFormData} />
+          </div>
 
-          
+          <div className="form-group">
+            <button type="button" className="btn btn-primary" onClick={() => handleImageChange(null)}>
+              Choose New Image
+            </button>
+          </div>
 
-
-          <button type="submit">Edit</button>
-          {res && <p className='danger'>{res.data.message}</p>}
+          <div className="form-group">
+            <button type="submit">Edit</button>
+            {res && <p className='danger'>{res.data.message}</p>}
+          </div>
         </Form>
-
       </div>
+
+
+
     </>
   )
 }

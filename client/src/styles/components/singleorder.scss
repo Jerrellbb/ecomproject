@@ -1,0 +1,55 @@
+.single-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.single-order h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.single-order p {
+  margin: 5px 0;
+}
+
+.single-order .shipping-address {
+  margin-bottom: 20px;
+}
+
+.single-order .shipping-address p {
+  margin: 3px 0;
+}
+
+.single-order .trainers {
+  margin-top: 20px;
+}
+
+.single-order .trainers li {
+  margin-bottom: 5px;
+}
+
+.single-order form {
+  margin-top: 20px;
+}
+
+.single-order button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+}
+
+.single-order button:hover {
+  background-color: #0056b3;
+}
