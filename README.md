@@ -1,7 +1,10 @@
 
 ---
 
-# Ecommerce Site
+# Ecommerce Site "Krep Konnect"
+
+### Deployment Link: [Krep Konnect](https://myfirstecomproject-366f55c308fc.herokuapp.com/)
+
 
 ## Overview
 This is a full-stack ecommerce site built using React for the front end and Python Django Rest Framework for the backend. The project is deployed on Heroku and utilizes Stripe as the payment gateway. The site allows users to sign up, log in, browse trainers, update their cart, and complete purchases securely through Stripe. Admin users have full CRUD functionality for trainers and can manage orders, including marking them as fulfilled.
