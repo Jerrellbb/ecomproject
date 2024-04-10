@@ -1,7 +1,7 @@
 import { useLoaderData, useNavigate, Form } from "react-router-dom"
 
 import axios from 'axios'
-import { getToken, getUserId } from "../../utils/helpers/common"
+import { getToken, getUserId, activeUser } from "../../utils/helpers/common"
 
 
 export default function TrainerDetail() {
@@ -51,9 +51,9 @@ export default function TrainerDetail() {
       <h1>{brandName}  {name}</h1>
       <div className="trainer-card">
         <div className='trainer-image'>
-          <img src={image_1} alt={name} style={{ height: 200, width: 200 }} />
-          {image_2 && <img src={image_2} alt={name} style={{ height: 200, width: 200 }} />}
-          {image_3 && <img src={image_3} alt={name} style={{ height: 200, width: 200 }} />}
+          <img src={image_1} alt={name}  />
+          {image_2 && <img src={image_2} alt={name}  />}
+          {image_3 && <img src={image_3} alt={name}  />}
         </div>
         <div className="trainer-info">
           <p><strong>Price:</strong> £{price}</p>
@@ -71,11 +71,11 @@ export default function TrainerDetail() {
       </div >
 
       <div className="detail-btns">
-        {in_stock === true ? (<form  method="PATCH" onSubmit={addTocart} >
+         {activeUser() && (in_stock === true  ? (<form  method="PATCH" onSubmit={addTocart} >
           <input type="hidden" name="trainer" value={id} />
           <button id="add-to-cart" type="submit" onClick={() => navigate(`/trainers/`)} >Add to cart</button>
 
-        </form>) : (<button>Unavailable</button>)}
+        </form>) : (<button>Unavailable</button>))}
         {getUserId() === owner.id && <><button
           type="button"
 
